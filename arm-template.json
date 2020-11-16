@@ -573,7 +573,7 @@
             ],
             "location": "[parameters('location')]",
             "plan": {
-                "name": "[variables('imageSku')]",
+                "name": "[parameters('imageSku')]",
                 "product": "[variables('imageOffer')]",
                 "publisher": "[variables('imagePublisher')]"
             },

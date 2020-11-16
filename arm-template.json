@@ -350,7 +350,7 @@
             "properties": {
                 "publicIPAllocationMethod": "[parameters('publicIPAllocationMethod')]",
                 "dnsSettings": {
-                    "domainNameLabel": "[parameters('publicIPAddressName')]"
+                    "domainNameLabel": "[concat(parameters('publicIPAddressName'), CopyIndex(1))]"
                 }
             },
             "copy": {
@@ -562,7 +562,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2018-06-01",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddressName'))]",
+                "[resourceId('Microsoft.Network/publicIPAddresses',  concat(parameters('publicIPAddressName'), '-', CopyIndex(1)))]",
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]",
                 "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('vmName'), '-', copyIndex(1), '-eth0'))]",

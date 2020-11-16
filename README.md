@@ -1,0 +1,1 @@
+# paloalto-ha-arm-template

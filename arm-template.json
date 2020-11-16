@@ -350,7 +350,7 @@
             "properties": {
                 "publicIPAllocationMethod": "[parameters('publicIPAllocationMethod')]",
                 "dnsSettings": {
-                    "domainNameLabel": "[concat(parameters('publicIPAddressName'), CopyIndex(1))]"
+                    "domainNameLabel": "[concat(parameters('publicIPAddressName'), '-', CopyIndex(1))]"
                 }
             },
             "copy": {

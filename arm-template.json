@@ -344,7 +344,7 @@
             }
         },
         {
-            "name": "[parameters('publicIPAddressName')]",
+            "name": "[concat(parameters('publicIPAddressName'), '-', CopyIndex(1))]",
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2017-10-01",
             "condition": "[equals(parameters('publicIPNewOrExisting'), 'new')]",
@@ -354,6 +354,10 @@
                 "dnsSettings": {
                     "domainNameLabel": "[parameters('publicIPAddressName')]"
                 }
+            },
+            "copy": {
+                "name": "pip-copy",
+                "count": 2
             }
         },
         {
@@ -431,7 +435,7 @@
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2017-10-01",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddressName'))]",
+                "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('publicIPAddressName'), '-', CopyIndex(1)))]",
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]"
             ],
             "location": "[parameters('location')]",
@@ -442,7 +446,7 @@
                         "properties": {
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "id": "[resourceId(concat('Microsoft.Network','/','publicIPAddresses'),parameters('publicIPAddressName'))]"
+                                "id": "[resourceId(concat('Microsoft.Network','/','publicIPAddresses'), concat(parameters('publicIPAddressName'), '-', CopyIndex(1)))]"
                             },
                             "subnet": {
                                 "id": "[variables('subnet0Ref')]"

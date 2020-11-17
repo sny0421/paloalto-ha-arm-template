@@ -2,6 +2,7 @@
 ## 概要
 **Palo Alto Networks 社 VM series** （以下、**PA VM** とする）を Azure 上に構築する際の設計考慮事項をまとめる。
 今回は主に HA 構成を想定した観点を含むため、リソース構成は次のようなイメージである。
+NAT 機能を使い、Active-Passive な構成としたいケースを想定する。
 
 ![Palo Alto VM の NIC 構成](./materials/PAVM-NW.jpg)
 
@@ -107,7 +108,6 @@ Active-Passive 構成時は、対向インスタンスと HA ピア間の制御�
 #### HA2 Link
 Active-Passive 構成を利用する場合にのみ使用する。
 HA2 Link インターフェースは HA ピア間でセッションテーブル、ARP テーブル、IPsec セキュリティアソシエーションの同期を行うために利用する。
-
 
 ### 障害時の動作
 Active-Passive 構成のとき、PAN-OS の高可用性機能により、インスタンス間で死活監視と通信情報の同期を実現する。

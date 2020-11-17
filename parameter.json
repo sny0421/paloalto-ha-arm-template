@@ -1,0 +1,105 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "[resourceGroup().location]"
+    },
+    "srcIPInboundNSG": {
+      "value": "61.114.212.147/32"
+    },
+    "nsgName": {
+      "value": "DefaultNSG"
+    },
+    "customData": {
+      "value": "storage-account=None,access-key=None,file-share=None,share-directory=None"
+    },
+    "vmName": {
+      "value": "paloalto"
+    },
+    "imageVersion": {
+      "value": "latest"
+    },
+    "imageSku": {
+      "value": "bundle1"
+    },
+    "vmSize": {
+      "value": "Standard_D3_v2"
+    },
+    "virtualNetworkName": {
+      "value": "paloalto-vnet"
+    },
+    "vnetNewOrExisting": {
+      "value": "new"
+    },
+    "virtualNetworkAddressPrefix": {
+      "value": "10.2.0.0/16"
+    },
+    "virtualNetworkExistingRGName": {
+      "value": null
+    },
+    "subnet0Name": {
+      "value": "Mgmt"
+    },
+    "subnet1Name": {
+      "value": "Untrust"
+    },
+    "subnet2Name": {
+      "value": "Trust"
+    },
+    "subnet3Name": {
+      "value": "HA2Link"
+    },
+    "subnet0Prefix": {
+      "value": "10.2.0.0/24"
+    },
+    "subnet1Prefix": {
+      "value": "10.2.1.0/24"
+    },
+    "subnet2Prefix": {
+      "value": "10.2.2.0/24"
+    },
+    "subnet3Prefix": {
+      "value": "10.2.3.0/24"
+    },
+    "authenticationType": {
+      "value": "password"
+    },
+    "adminUsername": {
+      "value": "snyadmin"
+    },
+    "adminPassword": {
+      "value": "NeAzure1969!"
+    },
+    "adminSshKey": {
+      "value": null
+    },
+    "publicIPNewOrExisting": {
+      "value": "new"
+    },
+    "publicIPRGName": {
+      "value": null
+    },
+    "publicIPAddressName": {
+      "value": "paloalto-pip"
+    },
+    "publicIPAllocationMethod": {
+      "value": "Static"
+    },
+    "bootstrap": {
+      "value": "no"
+    },
+    "zone": {
+      "value": "None"
+    },
+    "availabilitySetName": {
+      "value": "paloalto-as"
+    },
+    "availabilitySetPlatformFaultDomainCount": {
+      "value": "2"
+    },
+    "availabilitySetPlatformUpdateDomainCount": {
+      "value": "5"
+    }
+  }
+}

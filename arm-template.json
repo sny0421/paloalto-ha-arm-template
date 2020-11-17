@@ -633,7 +633,7 @@
                 "name": "vm-copy",
                 "count": 2
             },
-            "zones": "[if(equals(parameters('zone'), 'None'), json('null'), variables('zones'))]"
+            "zones": "[if(equals(parameters('zone'), 'None'), json('null'), copyIndex(1))]"
         }
     ]
 }

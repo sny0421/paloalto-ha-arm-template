@@ -28,7 +28,7 @@
                     },
                     {
                         "name": "vmName",
-                        "type": "Microsoft.Common.Textbox",
+                        "type": "Microsoft.Common.TextBox",
                         "label": "Virtual Machine Name",
                         "defaultValue": "",
                         "constraints": {
@@ -39,16 +39,7 @@
             }
         ],
         "outputs": {
-            "vmName": "[steps('appSettings').vmName]",
-            "trialOrProduction": "[steps('appSettings').trialOrProd]",
-            "userName": "[steps('vmCredentials').adminUsername]",
-            "pwd": "[steps('vmCredentials').vmPwd.password]",
-            "applicationResourceName": "[steps('appSettings').vmName]",
-            "subnetName": "[steps('appSettings').virtualNetwork.subnets.subnet1.name]",
-            "subnetAddressPrefix": "[steps('appSettings').virtualNetwork.subnets.subnet1.addressPrefix]",
-            "vNetAddressPrefix": "[steps('appSettings').virtualNetwork.addressPrefix]",
-            "virtualNetworkName": "[steps('appSettings').virtualNetwork.name]",
-            "vNetRgName": "[steps('appSettings').virtualNetwork.resourceGroup]"
+            "vmName": "[steps('appSettings').vmName]"
         }
     }
 }
